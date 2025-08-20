@@ -1,7 +1,7 @@
 const pool = require("../config/database");
 
 class Task {
-  static async createTask([title, description, status]) {
+  static async createTask(title, description, status) {
     const result = await pool.query(
       "INSERT INTO tasks (title, description, status) VALUES ($1, $2, $3) RETURNING *",
       [title, description, status]
